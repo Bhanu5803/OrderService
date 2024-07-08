@@ -40,7 +40,7 @@ public class OrderController {
     public OrderResponse updateOrderByName(@RequestBody OrderRequest orderRequest){
         return orderService.updateOrder(orderRequest);
     }
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public String deleteOrder(Integer orderId){
         return orderService.deleteOrder(orderId);
 
