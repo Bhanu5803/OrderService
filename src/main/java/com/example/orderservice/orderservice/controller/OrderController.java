@@ -27,21 +27,21 @@ public class OrderController {
 
     }
 @GetMapping("/byId")
-    public OrderResponse getOrdersById(Integer id)  {
+    public OrderResponse getOrdersById( @RequestParam("id") Integer id)  {
         return orderService.getOrdersById(id);
 
     }
-@GetMapping("/byName")
-    public List<OrderResponse> getOrdersByName(String orderName){
+@GetMapping("/byName/{name}")
+    public List<OrderResponse> getOrdersByName(@PathVariable("name") String orderName){
         return orderService.getOrdersByName(orderName);
 
     }
-    @PostMapping("/update")
-    public OrderResponse updateOrderByName(@RequestBody OrderRequest orderRequest){
+    @PutMapping ("/update/{id}")
+    public OrderResponse updateOrderByName(@PathVariable Integer id , @RequestBody OrderRequest orderRequest){
         return orderService.updateOrder(orderRequest);
     }
     @DeleteMapping("/delete")
-    public String deleteOrder(Integer orderId){
+    public String deleteOrder(@RequestParam("id") Integer orderId){
         return orderService.deleteOrder(orderId);
 
     }

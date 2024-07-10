@@ -24,7 +24,7 @@ public class OrderService {
 
 
     public String createOrder(OrderRequest orderRequest) {
-       Order order = Order.builder().orderId(orderRequest.getOrderId())
+       Order order = Order.builder()
                .orderName(orderRequest.getOrderName())
                .amount(orderRequest.getAmount())
                .discount(orderRequest.getDiscount()).build();
@@ -92,6 +92,6 @@ public class OrderService {
 
     public String deleteOrder(Integer orderId) {
         orderRepository.deleteById(orderId);
-        return "Order with order Id :" + " orderId " + "deleted successfully ";
+        return "Order with order Id : " +  orderId  + " deleted successfully ";
     }
 }
